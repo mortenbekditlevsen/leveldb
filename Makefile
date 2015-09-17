@@ -212,14 +212,14 @@ IOSARCH=-arch armv6 -arch armv7 -arch armv7s -arch arm64
 	mkdir -p ios-x86/$(dir $@)
 	xcrun -sdk iphonesimulator $(CXX) $(CXXFLAGS) -isysroot $(SIMULATORROOT)/SDKs/iPhoneSimulator$(IOSVERSION).sdk -arch i686 -arch x86_64 -c $< -o ios-x86/$@
 	mkdir -p ios-arm/$(dir $@)
-	xcrun -sdk iphoneos $(CXX) $(CXXFLAGS) -isysroot $(DEVICEROOT)/SDKs/iPhoneOS$(IOSVERSION).sdk $(IOSARCH) -c $< -o ios-arm/$@
+	xcrun -sdk iphoneos $(CXX) $(CXXFLAGS) -fembed-bitcode -isysroot $(DEVICEROOT)/SDKs/iPhoneOS$(IOSVERSION).sdk $(IOSARCH) -c $< -o ios-arm/$@
 	xcrun lipo ios-x86/$@ ios-arm/$@ -create -output $@
 
 .c.o:
 	mkdir -p ios-x86/$(dir $@)
 	xcrun -sdk iphonesimulator $(CC) $(CFLAGS) -isysroot $(SIMULATORROOT)/SDKs/iPhoneSimulator$(IOSVERSION).sdk -arch i686 -arch x86_64 -c $< -o ios-x86/$@
 	mkdir -p ios-arm/$(dir $@)
-	xcrun -sdk iphoneos $(CC) $(CFLAGS) -isysroot $(DEVICEROOT)/SDKs/iPhoneOS$(IOSVERSION).sdk $(IOSARCH) -c $< -o ios-arm/$@
+	xcrun -sdk iphoneos $(CC) $(CFLAGS) -fembed-bitcode -isysroot $(DEVICEROOT)/SDKs/iPhoneOS$(IOSVERSION).sdk $(IOSARCH) -c $< -o ios-arm/$@
 	xcrun lipo ios-x86/$@ ios-arm/$@ -create -output $@
 
 else
