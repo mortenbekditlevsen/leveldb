@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.7'
 
   s.source       =  {
-    :git => 'https://github.com/paulb777/leveldb.git', :tag => String(s.version)
+    :git => 'https://github.com/firebase/leveldb.git', :tag => String(s.version)
   }
 
   s.requires_arc = false
