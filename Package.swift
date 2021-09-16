@@ -58,7 +58,7 @@ let package = Package(
         "util/",
         "include/",
       ],
-      publicHeadersPath: "include",
+      publicHeadersPath: "includec",
       cSettings: [
         .define("LEVELDB_IS_BIG_ENDIAN", to: "0"),
         .define("LEVELDB_PLATFORM_POSIX", to: "1"),
