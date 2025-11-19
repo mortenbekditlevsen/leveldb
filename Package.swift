@@ -62,7 +62,7 @@ let package = Package(
       cSettings: [
         .define("LEVELDB_IS_BIG_ENDIAN", to: "0"),
         .define("LEVELDB_PLATFORM_POSIX", to: "1"),
-        .define("HAVE_FULLFSYNC", to: "1"),
+        .define("HAVE_FULLFSYNC", to: "0"),
         .headerSearchPath("./"),
         .headerSearchPath("include/"),
       ]
