@@ -2,6 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
+// Other platforms use env_posix.cc instead. (SwiftPM can't exclude a file per
+// platform.)
+#if defined(_WIN32)
+
 // Prevent Windows headers from defining min/max macros and instead
 // use STL.
 #ifndef NOMINMAX
@@ -794,3 +798,5 @@ Env* Env::Default() {
 }
 
 }  // namespace leveldb
+
+#endif  // defined(_WIN32)

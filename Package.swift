@@ -18,7 +18,6 @@ let package = Package(
       path: ".",
       exclude: [
         "db/leveldbutil.cc",
-        "util/env_windows.cc",
         "util/testutil.cc",
         "db/autocompact_test.cc",
         "db/corruption_test.cc",
@@ -52,11 +51,11 @@ let package = Package(
         "db/c_test.c",
       ],
       sources: [
-        "db/",
-        "port/",
-        "table/",
-        "util/",
-        "include/",
+        "db",
+        "port",
+        "table",
+        "util",
+        "include",
       ],
       publicHeadersPath: "include",
       cSettings: [
